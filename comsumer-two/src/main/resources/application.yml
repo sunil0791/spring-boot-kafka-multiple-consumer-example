@@ -1,0 +1,19 @@
+server:
+ port: 8082
+spring:
+  kafka:
+    bootstrap-servers: $KAFKA_SERVER
+    client-id: consumer-two
+    properties:
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="$KAFKA_AZURE_PASS";
+      sasl.mechanism: PLAIN
+      auto.offset.reset: earliest
+      security.protocol: SASL_SSL
+    consumer:
+      group-id: "consumer-two"
+      properties:
+        spring.json:
+          use.type.headers: false
+          value.default.type: com.targa.labs.dev.kafkaonazure.SimpleMessage
+topic:
+  name: exchange-topic

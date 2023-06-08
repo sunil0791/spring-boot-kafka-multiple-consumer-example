@@ -1,0 +1,13 @@
+
+spring:
+  kafka:
+    bootstrap-servers: ldps-evhns-eus-dev-03a.servicebus.windows.net:9093
+    client-id: first-producer
+    properties:      
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="$KAFKA_AZURE_PASS";
+      sasl.mechanism: PLAIN
+      security.protocol: SASL_SSL
+    producer:
+      value-serializer: com.optym.kafka.dto.ProducerMessageSerializer
+topic:
+  name: exchange-topic
