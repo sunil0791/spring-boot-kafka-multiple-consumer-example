@@ -1,7 +1,7 @@
 
 spring:
   kafka:
-    bootstrap-servers: ldps-evhns-eus-dev-03a.servicebus.windows.net:9093
+    bootstrap-servers: $KAFKA_SERVER
     client-id: first-producer
     properties:      
       sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="$KAFKA_AZURE_PASS";
